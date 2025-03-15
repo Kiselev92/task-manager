@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  postgres:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: postgresql
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_USER: task_manager
+      POSTGRES_PASSWORD: task_manager
+      POSTGRES_DB: task_manager
+    ports:
+      - "5437:5432"
+    volumes:
+      - ~/pgdata:/var/lib/postgresql/data/pgdata
