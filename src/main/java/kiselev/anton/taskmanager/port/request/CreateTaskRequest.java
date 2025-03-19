@@ -3,7 +3,6 @@ package kiselev.anton.taskmanager.port.request;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import kiselev.anton.taskmanager.domain.TaskPriority;
-import kiselev.anton.taskmanager.domain.TaskStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

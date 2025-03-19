@@ -21,12 +21,24 @@ public class TaskComment {
 
     Long taskId;
 
+    /**
+     * Дата создания комментария
+     */
     Instant created;
 
+    /**
+     * Дата изменения комментария
+     */
     @Nullable
     Instant updated;
 
+    /**
+     * Автор комментария
+     */
     UUID author;
 
+    /**
+     * Тело комментария
+     */
     String body;
 }

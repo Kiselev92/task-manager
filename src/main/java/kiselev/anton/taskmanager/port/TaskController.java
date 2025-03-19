@@ -26,9 +26,7 @@ public class TaskController {
 
     @Operation(description = "Создать задачу")
     @PostMapping
-    public Long create(@RequestBody CreateTaskRequest request) {
-        return taskService.create(request);
-    }
+    public Long create(@RequestBody CreateTaskRequest request) { return taskService.create(request); }
 
     @Operation(description = "Получить задачу по id")
     @GetMapping("/{id}")

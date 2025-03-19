@@ -19,10 +19,21 @@ import java.util.UUID;
 @AllArgsConstructor
 public class TaskSearchRequest {
 
+    @Schema(description = "Автор задачи")
     private UUID authorId;
+
+    @Schema(description = "Исполнитель задачи")
     private UUID assigneeId;
+
+    @Schema(description = "Приоритет задачи")
     private TaskPriority priority;
+
+    @Schema(description = "Статус задачи")
     private List<TaskStatus> statuses;
+
+    @Schema(description = "Дата создания задачи")
     private Instant createdFrom;
+
+    @Schema(description = "Дата изменения задачи")
     private Instant createdTo;
 }

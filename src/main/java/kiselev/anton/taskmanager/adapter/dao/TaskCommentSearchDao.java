@@ -1,21 +1,15 @@
 package kiselev.anton.taskmanager.adapter.dao;
 
-import com.example.tradingnotifications.domain.Stock;
-import com.example.tradingnotifications.domain.StockType;
 import kiselev.anton.taskmanager.model.dto.TaskCommentDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,7 +20,7 @@ public class TaskCommentSearchDao {
     private final NamedParameterJdbcOperations jdbc;
     private final RowMapper<TaskCommentDto> rowMapper = new TaskCommentSearchDao.TaskCommentRowMapper();
 
-    public List<Stock> list(Integer limit, Integer offset) {
+    public List<> list(Integer limit, Integer offset) {
         String sql = """
                 SELECT * FROM stocks
                 ORDER BY name

@@ -1,6 +1,8 @@
 package kiselev.anton.taskmanager.service;
 
+import kiselev.anton.taskmanager.adapter.dao.TaskDao;
 import kiselev.anton.taskmanager.domain.Task;
+import kiselev.anton.taskmanager.domain.UserRole;
 import kiselev.anton.taskmanager.port.request.UpdateTaskRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,11 +15,9 @@ public class TaskService {
 
     private final TaskDao taskDao;
 
-    public void create(Task task) {
-        return task.create(task);
-    }
+    public void create(Task task) { return taskDao.create(task); }
 
-    public Task findById(Long id, UserRole role, Long userId) { return taskDao.findById(id); }
+    public Task findById(Long id, UserRole role, Long userId) { return taskDao.findById(id) }
 
     public void deleteById(Long id, UserRole role, Long userId) { taskDao.deleteById(id); }
 

@@ -1,7 +1,7 @@
 package kiselev.anton.taskmanager.adapter.dao;
 
 import kiselev.anton.taskmanager.domain.Task;
-import kiselev.anton.taskmanager.model.dto.TaskDto;
+import kiselev.anton.taskmanager.domain.UserRole;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
@@ -46,14 +46,16 @@ public class TaskDao {
         return (Long) keyHolder.getKeys().get("id");
     }
 
-    public Task findById(Long id) {
+    public Task findById(Long id, UserRole role, Long userId) {
         String sql = """
                 SELECT * FROM tasks t
                 LEFT JOIN task_comments tc ON tc.task_id = t.id  
                 WHERE t.id = :id""";
 
         SqlParameterSource params = new MapSqlParameterSource()
-                .addValue("id", id);
+                .addValue("id", id)
+                .addValue("role", role)
+                .addValue("userId", userId);
         List<Task> results = jdbc.query(sql, params, taskRowMapper);
         return results.isEmpty() ? null : results.get(0);
     }
